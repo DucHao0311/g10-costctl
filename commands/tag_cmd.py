@@ -43,13 +43,17 @@ USEFUL COMBO
       --set Application=HealthBot
 """
 import boto3
+<<<<<<< HEAD
 from botocore.exceptions import ClientError
+=======
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 from commands._common import parse_kv
 
 
 def _to_tags(set_args):
     """Convert ['k1=v1', 'k2=v2'] to [{'Key':'k1','Value':'v1'}, ...]."""
+<<<<<<< HEAD
     result = []
     for s in set_args:
         k, v = parse_kv(s)
@@ -88,6 +92,25 @@ def _tag_s3(rid, tags):
 def _tag_volume(rid, tags):
     ec2 = boto3.client("ec2")
     ec2.create_tags(Resources=[rid], Tags=tags)
+=======
+    raise NotImplementedError("TODO: implement _to_tags using parse_kv")
+
+
+def _tag_ec2(rid, tags):
+    raise NotImplementedError("TODO: implement _tag_ec2 using create_tags")
+
+
+def _tag_rds(rid, tags):
+    raise NotImplementedError("TODO: implement _tag_rds — remember to fetch ARN first")
+
+
+def _tag_s3(rid, tags):
+    raise NotImplementedError("TODO: implement _tag_s3 — MERGE with existing tags, don't replace")
+
+
+def _tag_volume(rid, tags):
+    raise NotImplementedError("TODO: implement _tag_volume using create_tags")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 DISPATCH = {
@@ -106,7 +129,11 @@ def run(args):
         args.id    — resource identifier
         args.set   — list[str], each "key=value"
     """
+<<<<<<< HEAD
     tags = _to_tags(args.set)
     DISPATCH[args.type](args.id, tags)
     tag_str = ", ".join(f"{t['Key']}={t['Value']}" for t in tags)
     print(f"Applied {len(tags)} tag(s) to {args.type} {args.id}: {tag_str}")
+=======
+    raise NotImplementedError("TODO: implement run() — see module docstring")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e

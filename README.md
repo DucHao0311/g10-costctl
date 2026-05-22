@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # costctl — G10 XBrain W6 side challenge
+=======
+# costctl — XBrain W6 side challenge starter
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 A starter scaffold for a small AWS-resource-management CLI. **The CLI structure
 is built; you implement the command logic.** Fork this repo, fill in the
@@ -276,7 +280,11 @@ Add a `REFLECTIONS.md` to your repo. Sample prompts:
 - [ ] Implement `list` → `pytest tests/test_list.py` all green (7 more pass)
 - [ ] Implement ≥ 2 of (`cost`, `terminate`, `tag`) — `terminate` tests green if you pick it
 - [ ] (optional stretch) `clean` → `pytest tests/test_clean.py` green; or `idle` / `migrate-gp3`
+<<<<<<< HEAD
 - [x] `make test` final score reported in README — **25/25 passing**
+=======
+- [ ] `make test` final score reported in README (e.g. "21/25 passing")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 - [ ] Replace `sample_output/*_example.txt` with real outputs from your account
 - [ ] `REFLECTIONS.md` with 2+ answers
 - [ ] At least 3 meaningful commits (init → first command working → final polish)
@@ -299,6 +307,7 @@ MIT — see `LICENSE`.
 
 ## Team
 
+<<<<<<< HEAD
 GROUP 10
 
 - Nguyen Duc Hao
@@ -311,6 +320,13 @@ GROUP 10
 - Le Van Hai
 - Le Viet Quoc Hung
 - Huynh Xuan Hau
+=======
+> Replace before submission:
+
+- <name 1>
+- <name 2>
+- <name 3>
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 ---
 

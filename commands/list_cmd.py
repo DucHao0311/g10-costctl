@@ -35,7 +35,10 @@ VERIFY
     pytest tests/test_list.py -v
 """
 import boto3
+<<<<<<< HEAD
 from botocore.exceptions import ClientError
+=======
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 from commands._common import parse_kv, tags_to_dict, tags_match
 
@@ -50,6 +53,7 @@ def _list_ec2(want, missing):
     Returns:
         list of (instance_id, instance_type, state, tags_dict) tuples
     """
+<<<<<<< HEAD
     ec2 = boto3.client("ec2")
     paginator = ec2.get_paginator("describe_instances")
     results = []
@@ -69,6 +73,9 @@ def _list_ec2(want, missing):
                         tags,
                     ))
     return results
+=======
+    raise NotImplementedError("TODO: implement _list_ec2 — see test_list.py for expected behavior")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 def _list_rds(want, missing):
@@ -80,6 +87,7 @@ def _list_rds(want, missing):
     Returns:
         list of (db_id, db_class, db_status, tags_dict) tuples
     """
+<<<<<<< HEAD
     rds = boto3.client("rds")
     results = []
     paginator = rds.get_paginator("describe_db_instances")
@@ -96,6 +104,9 @@ def _list_rds(want, missing):
                     tags,
                 ))
     return results
+=======
+    raise NotImplementedError("TODO: implement _list_rds")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 def _list_s3(want, missing):
@@ -107,6 +118,7 @@ def _list_s3(want, missing):
     Returns:
         list of (bucket_name, "bucket", "active", tags_dict) tuples
     """
+<<<<<<< HEAD
     s3 = boto3.client("s3")
     buckets = s3.list_buckets().get("Buckets", [])
     results = []
@@ -120,6 +132,9 @@ def _list_s3(want, missing):
         if tags_match(tags, want, missing):
             results.append((name, "bucket", "active", tags))
     return results
+=======
+    raise NotImplementedError("TODO: implement _list_s3")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 def _list_volume(want, missing):
@@ -129,6 +144,7 @@ def _list_volume(want, missing):
         list of (volume_id, "<type>-<size>GB", state, tags_dict) tuples
         e.g. ("vol-0abc", "gp2-100GB", "in-use", {"purpose": "practice"})
     """
+<<<<<<< HEAD
     ec2 = boto3.client("ec2")
     paginator = ec2.get_paginator("describe_volumes")
     results = []
@@ -145,6 +161,9 @@ def _list_volume(want, missing):
                     tags,
                 ))
     return results
+=======
+    raise NotImplementedError("TODO: implement _list_volume")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 DISPATCH = {
@@ -169,6 +188,7 @@ def run(args):
         args.tag          — list[str], each "key=value"
         args.missing_tag  — list[str], each "key"
     """
+<<<<<<< HEAD
     want = [parse_kv(t) for t in args.tag]
     missing = list(args.missing_tag)
 
@@ -189,3 +209,6 @@ def run(args):
         rid, rtype, state, tags = row
         tag_str = ", ".join(f"{k}={v}" for k, v in tags.items())
         print(f"  {rid:<40} {rtype:<15} {state:<15} {tag_str}")
+=======
+    raise NotImplementedError("TODO: implement run() — see module docstring")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e

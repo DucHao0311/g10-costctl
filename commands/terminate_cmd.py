@@ -58,12 +58,16 @@ from commands._common import confirm
 
 def _terminate_ec2(rid, force):
     """Terminate one EC2 instance after confirmation."""
+<<<<<<< HEAD
     if not confirm(f"Terminate EC2 instance {rid}?", force=force):
         print("Aborted.")
         return
     ec2 = boto3.client("ec2")
     ec2.terminate_instances(InstanceIds=[rid])
     print(f"Terminated EC2 {rid}")
+=======
+    raise NotImplementedError("TODO: implement _terminate_ec2")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 def _terminate_rds(rid, force):
@@ -72,16 +76,21 @@ def _terminate_rds(rid, force):
     Full delete (delete_db_instance) requires a final snapshot decision —
     out of scope for this challenge. Stop is enough to stop billing.
     """
+<<<<<<< HEAD
     if not confirm(f"Stop RDS instance {rid}?", force=force):
         print("Aborted.")
         return
     rds = boto3.client("rds")
     rds.stop_db_instance(DBInstanceIdentifier=rid)
     print(f"Stopped RDS {rid}")
+=======
+    raise NotImplementedError("TODO: implement _terminate_rds")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 def _terminate_s3(rid, force):
     """Delete one S3 bucket — refuse if it has any objects."""
+<<<<<<< HEAD
     s3 = boto3.client("s3")
     resp = s3.list_objects_v2(Bucket=rid)
     count = resp.get("KeyCount", 0)
@@ -93,16 +102,23 @@ def _terminate_s3(rid, force):
         return
     s3.delete_bucket(Bucket=rid)
     print(f"Deleted S3 bucket {rid}")
+=======
+    raise NotImplementedError("TODO: implement _terminate_s3")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 def _terminate_volume(rid, force):
     """Delete one EBS volume after confirmation."""
+<<<<<<< HEAD
     if not confirm(f"Delete EBS volume {rid}?", force=force):
         print("Aborted.")
         return
     ec2 = boto3.client("ec2")
     ec2.delete_volume(VolumeId=rid)
     print(f"Deleted volume {rid}")
+=======
+    raise NotImplementedError("TODO: implement _terminate_volume")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 DISPATCH = {
@@ -121,9 +137,13 @@ def run(args):
         args.id     — resource identifier
         args.force  — bool, skip confirm if True
     """
+<<<<<<< HEAD
     try:
         DISPATCH[args.type](args.id, args.force)
     except ClientError as e:
         code = e.response["Error"]["Code"]
         message = e.response["Error"]["Message"]
         print(f"AWS error [{code}]: {message}")
+=======
+    raise NotImplementedError("TODO: implement run() — wrap DISPATCH[args.type] with try/except ClientError")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e

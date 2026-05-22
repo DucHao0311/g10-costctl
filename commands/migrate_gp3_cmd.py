@@ -70,7 +70,10 @@ import boto3
 # us-east-1 on-demand pricing per GB-month. Override if you care about exact $.
 GP2_PRICE = 0.10
 GP3_PRICE = 0.08
+<<<<<<< HEAD
 PRICE_DELTA = GP2_PRICE - GP3_PRICE  # $0.02/GB-month
+=======
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 def run(args):
@@ -80,6 +83,7 @@ def run(args):
         args.apply       — bool, default False (dry-run)
         args.volume_id   — optional str, only migrate this volume when --apply
     """
+<<<<<<< HEAD
     ec2 = boto3.client("ec2")
 
     # Fetch gp2 volumes (optionally filtered to one volume-id)
@@ -131,3 +135,6 @@ def run(args):
     print()
     print("Volume(s) entering 'modifying' → 'optimizing' state. App stays online.")
     print("Use `costctl list volume` after ~30 minutes to confirm 'in-use' + gp3.")
+=======
+    raise NotImplementedError("TODO: implement migrate-gp3 — see module docstring")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e

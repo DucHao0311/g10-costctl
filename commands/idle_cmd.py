@@ -58,6 +58,7 @@ from statistics import mean
 
 def _avg_cpu(cw, instance_id, hours):
     """Return average CPU% over last N hours, or None if no datapoints."""
+<<<<<<< HEAD
     end = datetime.now(timezone.utc)
     start = end - timedelta(hours=hours)
     resp = cw.get_metric_statistics(
@@ -73,6 +74,9 @@ def _avg_cpu(cw, instance_id, hours):
     if not datapoints:
         return None
     return mean(dp["Average"] for dp in datapoints)
+=======
+    raise NotImplementedError("TODO: implement _avg_cpu — use get_metric_statistics")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 def run(args):
@@ -82,6 +86,7 @@ def run(args):
         args.threshold  — float, default 5.0 (% CPU)
         args.hours      — int, default 24
     """
+<<<<<<< HEAD
     threshold = args.threshold
     hours = args.hours
 
@@ -119,3 +124,6 @@ def run(args):
     print()
     print(f"Idle: {len(idle_ids)} instance(s): {idle_ids}")
     print(f"Tip: combo with terminate →  ./costctl.py terminate ec2 --id <id>")
+=======
+    raise NotImplementedError("TODO: implement run() — see module docstring")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e

@@ -66,6 +66,7 @@ def run(args):
         args.tag   — "key=value" string (REQUIRED)
         args.days  — int, default 7
     """
+<<<<<<< HEAD
     tag_key, tag_val = parse_kv(args.tag)
     days = args.days
 
@@ -101,3 +102,6 @@ def run(args):
         print(f"  {service:<45}  ${cost:>8.2f}")
     print("-" * 60)
     print(f"  {'TOTAL':<45}  ${total:>8.2f}")
+=======
+    raise NotImplementedError("TODO: implement cost — see module docstring")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e

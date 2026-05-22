@@ -46,6 +46,7 @@ from commands._common import parse_kv
 
 def _find_targets(tag_key, tag_val):
     """Return {"ec2": [...], "volume": [...]} matching tag in non-terminal state."""
+<<<<<<< HEAD
     ec2 = boto3.client("ec2")
 
     # Find EC2 instances with the tag, skip terminal states
@@ -68,6 +69,9 @@ def _find_targets(tag_key, tag_val):
                 vol_ids.append(vol["VolumeId"])
 
     return {"ec2": ec2_ids, "volume": vol_ids}
+=======
+    raise NotImplementedError("TODO: implement _find_targets — see test_clean.py")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 
 def run(args):
@@ -77,6 +81,7 @@ def run(args):
         args.tag    — "key=value" string (REQUIRED)
         args.apply  — bool, must be True to actually delete (default False = dry-run)
     """
+<<<<<<< HEAD
     tag_key, tag_val = parse_kv(args.tag)
     targets = _find_targets(tag_key, tag_val)
 
@@ -111,3 +116,6 @@ def run(args):
     for vid in vol_ids:
         ec2.delete_volume(VolumeId=vid)
         print(f"Deleted volume {vid}")
+=======
+    raise NotImplementedError("TODO: implement run() — see module docstring")
+>>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
