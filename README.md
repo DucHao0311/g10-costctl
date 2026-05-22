@@ -321,11 +321,6 @@ GROUP 10
 - Le Viet Quoc Hung
 - Huynh Xuan Hau
 =======
-> Replace before submission:
-
-- <name 1>
-- <name 2>
-- <name 3>
 >>>>>>> a77810e73cb9bcfd6fd20bf74366342dd26a7e6e
 
 ---
